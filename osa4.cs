@@ -25,23 +25,23 @@ namespace Os4
                 Console.WriteLine("Mingi viga failiga");
             }
         }
-        public static void Lugemine_fail(string failinimi)
-        {
-            try
-            {
+        //public static void Lugemine_fail(string failinimi)
+        //{
+        //    try
+        //    {
 
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, failinimi);
-                StreamReader text = new StreamReader(path);
-                string laused = text.ReadToEnd();
-                text.Close();
-                Console.WriteLine(laused);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Mingi viga failiga, ei saa faili lugeda");
-            }
+        //        string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, failinimi);
+        //        StreamReader text = new StreamReader(path);
+        //        string laused = text.ReadToEnd();
+        //        text.Close();
+        //        Console.WriteLine(laused);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        Console.WriteLine("Mingi viga failiga, ei saa faili lugeda");
+        //    }
 
-        }
+        //}
         public static void Lugemine_fail(string failinimi)
         {
             try

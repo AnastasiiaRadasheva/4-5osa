@@ -31,9 +31,10 @@ namespace Os4
         {
             return new List<Toode>
         {
-            new Toode("Õun", 52),
-            new Toode("Leib", 265),
-            new Toode("Kanafilee", 165)
+            new Toode("Shokolad", 420),
+            new Toode("adrifilee", 1000),
+            new Toode("Kanafilee", 165),
+            new Toode("banana", 60)
         };
         }
 
@@ -68,4 +69,6 @@ namespace Os4
                 Console.WriteLine($"{t.Nimi}: {grammid:F1} g");
             }
 
+        }
+    }
 }
