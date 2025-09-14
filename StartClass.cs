@@ -18,14 +18,15 @@ namespace Os4
             //osa4.RidadeLugemine();
 
 
-            var tooted = osa5.LooToodeteNimekiri();
+            //var tooted = osa5.LooToodeteNimekiri();
 
-            var inimene = osa5.LoeKasutajaAndmed();
+            //var inimene = osa5.LoeKasutajaAndmed();
 
-            double kcal = inimene.ArvutaEnergiavajadus();
+            //double kcal = inimene.ArvutaEnergiavajadus();
 
-            osa5.KuvadaTulemused(inimene, kcal, tooted);
+            //osa5.KuvadaTulemused(inimene, kcal, tooted);
 
+            osa5.OkrugJaStolitsa();
         }
     }
 }
