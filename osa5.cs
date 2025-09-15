@@ -71,13 +71,13 @@ namespace Os4
         public static void OkrugJaStolitsa()
         {
             Dictionary<string, string> okrugid = new Dictionary<string, string>()
-            {
-                {"Harjumaa", "Tallinn"},
-                {"Tartumaa", "Tartu"},
-                {"Pärnumaa", "Pärnu"},
-                {"Ida-Virumaa", "Jõhvi"},
-                {"Läänemaa", "Haapsalu"}
-            };
+    {
+        {"Harjumaa", "Tallinn"},
+        {"Tartumaa", "Tartu"},
+        {"Pärnumaa", "Pärnu"},
+        {"Ida-Virumaa", "Jõhvi"},
+        {"Läänemaa", "Haapsalu"}
+    };
             while (true)
             {
                 Console.WriteLine("Vali tegevus:");
@@ -106,7 +106,17 @@ namespace Os4
                 {
                     Console.Write("Sisesta stolitsa nimi: ");
                     string stolitsa = Console.ReadLine();
-                    var okrug = okrugid.FirstOrDefault(x => x.Value.Equals(stolitsa, StringComparison.OrdinalIgnoreCase)).Key;
+
+                    string okrug = null;
+                    foreach (var paar in okrugid)
+                    {
+                        if (paar.Value.ToLower() == stolitsa.ToLower())
+                        {
+                            okrug = paar.Key;
+                            break;
+                        }
+                    }
+
                     if (okrug != null)
                     {
                         Console.WriteLine($"{stolitsa} on {okrug} stolits.");
@@ -131,12 +141,12 @@ namespace Os4
                         Console.WriteLine($"Mis on {paar.Key} stolits? (või kirjuta 'välju' lõpetamiseks)");
                         string vastus = Console.ReadLine();
 
-                        if (vastus.Equals("valju", StringComparison.OrdinalIgnoreCase))
+                        if (vastus.ToLower() == "valju")
                             break;
 
                         kokku++;
 
-                        if (vastus.Equals(paar.Value, StringComparison.OrdinalIgnoreCase))
+                        if (vastus.ToLower() == paar.Value.ToLower())
                         {
                             Console.WriteLine("Õige!");
                             õigeid++;
@@ -153,7 +163,10 @@ namespace Os4
                         Console.WriteLine($"Sa vastasid õigesti {õigeid} korda {kokku}-st. Protsent: {protsent:F2}%");
                     }
                 }
-
+                else if (valik == "4")
+                {
+                    break;
+                }
             }
         }
     }
