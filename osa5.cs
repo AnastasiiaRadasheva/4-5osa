@@ -71,13 +71,13 @@ namespace Os4
         public static void OkrugJaStolitsa()
         {
             Dictionary<string, string> okrugid = new Dictionary<string, string>()
-    {
-        {"Harjumaa", "Tallinn"},
-        {"Tartumaa", "Tartu"},
-        {"Pärnumaa", "Pärnu"},
-        {"Ida-Virumaa", "Jõhvi"},
-        {"Läänemaa", "Haapsalu"}
-    };
+            {
+                {"Harjumaa", "Tallinn"},
+                {"Tartumaa", "Tartu"},
+                {"Pärnumaa", "Pärnu"},
+                {"Ida-Virumaa", "Jõhvi"},
+                {"Läänemaa", "Haapsalu"}
+            };
             while (true)
             {
                 Console.WriteLine("Vali tegevus:");
@@ -131,36 +131,42 @@ namespace Os4
                 }
                 else if (valik == "3")
                 {
-                    int õigeid = 0;
                     int kokku = 0;
+                    int oigeid = 0;
                     Random rnd = new Random();
 
-                    while (true)
+                    List<string> allesJäänud = new List<string>(okrugid.Keys);
+
+                    while (allesJäänud.Count > 0)
                     {
-                        var paar = okrugid.ElementAt(rnd.Next(okrugid.Count));
-                        Console.WriteLine($"Mis on {paar.Key} stolits? (või kirjuta 'välju' lõpetamiseks)");
+                        int index = rnd.Next(allesJäänud.Count);
+                        string maakond = allesJäänud[index];
+                        string pealinn = okrugid[maakond];
+
+                        Console.WriteLine($"Mis on {maakond} stolits? (kirjuta 'välju' lõpetamiseks)");
                         string vastus = Console.ReadLine();
 
-                        if (vastus.ToLower() == "valju")
+                        if (vastus.Trim().ToLower() == "välju")
                             break;
 
                         kokku++;
 
-                        if (vastus.ToLower() == paar.Value.ToLower())
+                        if (vastus.Trim().ToLower() == pealinn.ToLower())
                         {
                             Console.WriteLine("Õige!");
-                            õigeid++;
+                            oigeid++;
                         }
                         else
                         {
-                            Console.WriteLine($"Vale! Õige vastus on {paar.Value}.");
+                            Console.WriteLine($"Vale! Õige vastus on {pealinn}.");
                         }
-                    }
 
+                        allesJäänud.RemoveAt(index);
+                    }
                     if (kokku > 0)
                     {
-                        double protsent = (double)õigeid / kokku * 100;
-                        Console.WriteLine($"Sa vastasid õigesti {õigeid} korda {kokku}-st. Protsent: {protsent:F2}%");
+                        double protsent = (double)oigeid / kokku * 100;
+                        Console.WriteLine($"Sa vastasid õigesti {oigeid} korda {kokku}-st. Protsent: {protsent:F2}%");
                     }
                 }
                 else if (valik == "4")
