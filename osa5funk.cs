@@ -24,6 +24,7 @@ namespace Os4
 {
     internal class osa5
     {
+     //1 osa 5
         public static List<Toode> LooToodeteNimekiri()
         {
             return new List<Toode>
