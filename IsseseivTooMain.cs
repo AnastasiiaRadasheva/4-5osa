@@ -4,7 +4,7 @@ using static Os4.IsseseivTooFunk;
 
 namespace Os4
 {
-    internal class IsseseivTooMain
+    internal class IsseseivTooMain5osa
     {
        
         public static void Main(string[] args)
